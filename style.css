@@ -1,0 +1,37 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    width: 95;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-transform: uppercase;
+    color: green;
+    padding: 5px 15px;
+    margin-bottom: 2%;
+    margin-top: 20px;
+}
+
+.comandos{
+    margin-bottom: 2%;
+}
+
+.start{
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+.restart{
+    padding: 5px 15px;
+    border-radius: 20px;
+}
