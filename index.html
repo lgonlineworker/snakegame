@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <!-- Style links -->   
+    <link rel="stylesheet" href="CSS/style.css">
+    
+    <!--Scripts links-->
+    <script defer src="Script/script new.js"></script>
+    <script defer src="https://kit.fontawesome.com/de27e9b7d4.js" crossorigin="anonymous"></script>
     <title>Snake Game</title>
+    <link rel="shortcut icon" href="img/ico/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <h1 class="title"> Jogo da Cobrinha</h1>
+        <h1 class="title">Jogo da Cobrinha <img src="img/ico/favicon-32x32.png" alt=""></h1>
     </header>
     <div class="comandos">
-       <input type="button" value="Iniciar" class="start">
-       <input type="button" value="Reiniciar" class="restart">
-        <label for="score">Score</label><input type="number" name="score" id="score">
-
+       <button type="button" id="easy">Slow snake <i class="fas fa-play-circle"></i></in>
+       <button type="button" id="medium">Normal snake <i class="fas fa-undo-alt"></i></button>
+       <button type="button"  id="hard">Insane snake <i class="fas fa-cogs"></i></button>
+       <button type="button"  id="special">Special mode <i class="fas fa-cogs"></i></button>
+        
     </div>
-
-    <canvas id="snake" width="512" height="512"></canvas>    
+    <div class="container">
+        <canvas id="snake" width="512" height="512"></canvas>    
+        <div class="tableScore">   
+            <p class="textScore">Score</p>
+            <output id="numberScore">0</output>
+        </div>
+    </div>
 </body>
 </html>

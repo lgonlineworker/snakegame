@@ -1,0 +1,57 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    margin: 0;
+    
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+body header h1.title{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-transform: uppercase;
+    color: rgb(78, 150, 78);
+    padding: 5px 15px;
+    margin-bottom: 2%;
+    margin-top: 5px;
+}
+
+body div.comandos{
+    margin-bottom: 1%;
+}
+
+button{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5rem;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+
+.container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgb(51, 85, 51);
+    border-radius: 20px;
+}
+.container .table{
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.container #snake{
+    margin: 2% 2%;
+    
+}
