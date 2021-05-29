@@ -1,5 +1,5 @@
 * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
     padding: 0;
     margin: 0;
     
@@ -12,6 +12,7 @@ body{
     width: 100%;
     justify-content: center;
     align-items: center;
+    background-color: rgb(51, 85, 51);
 }
 
 body header h1.title{
@@ -22,36 +23,119 @@ body header h1.title{
     padding: 5px 15px;
     margin-bottom: 2%;
     margin-top: 5px;
+    font-weight: 50;
+}
+
+body div.wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    
 }
 
 body div.comandos{
-    margin-bottom: 1%;
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    align-items: center;
+    justify-content: space-around;
 }
 
 button{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 1.5rem;
-    padding: 5px 15px;
+    padding: 5px 25px;
     border-radius: 20px;
 }
 
 
 .container{
     display: flex;
-    align-items: center;
+    flex-direction: column-reverse;
+    align-items: flex-start;
     height: 100%;
     width: 100%;
     max-width: 600px;
     background-color: rgb(51, 85, 51);
     border-radius: 20px;
 }
-.container .table{
+.container .tableScore{
     display: flex;
     align-items: baseline;
-    flex-direction: column;
+    flex-direction: row;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-transform: uppercase;
+    text-shadow:darkslateblue;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-left: 10px ;
 }
 
 .container #snake{
-    margin: 2% 2%;
+    margin: 10px 10px;
     
 }
+
+#numberScore{
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 675px) {
+    body div.wrapper{
+        flex-direction: column;
+        
+    }
+    body div.comandos{
+        flex-direction: row;
+    }
+    button{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 25px;
+        padding: 5px 5px;
+        border-radius: 20px;
+    }
+  }
+
+  @media screen and (max-width: 460px) {
+    
+    #snake{
+        width: 95%;
+        height: 95%;
+    }
+
+    body div.wrapper{
+        flex-direction: column;
+        
+    }
+    body div.comandos{
+        flex-direction: row;
+    }
+    button{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 20px;
+        padding: 5px 5px;
+        border-radius: 10px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    
+    #snake{
+        width: 95%;
+        height: 95%;
+    }
+
+    body div.wrapper{
+        flex-direction: column;
+        
+    }
+    body div.comandos{
+        flex-direction: row;
+    }
+    button{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 15px;
+        padding: 5px 5px;
+        border-radius: 10px;
+    }
+  }

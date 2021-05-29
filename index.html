@@ -17,19 +17,22 @@
     <header>
         <h1 class="title">Jogo da Cobrinha <img src="img/ico/favicon-32x32.png" alt=""></h1>
     </header>
-    <div class="comandos">
-       <button type="button" id="easy">Slow snake <i class="fas fa-play-circle"></i></in>
-       <button type="button" id="medium">Normal snake <i class="fas fa-undo-alt"></i></button>
-       <button type="button"  id="hard">Insane snake <i class="fas fa-cogs"></i></button>
-       <button type="button"  id="special">Special mode <i class="fas fa-cogs"></i></button>
+    <div class="wrapper">
+      <div class="comandos">
+          <button type="button" id="easy">Slow <i class="fas fa-frog"></i></in>
+          <button type="button" id="medium">Normal <i class="fas fa-horse"></i></button>
+          <button type="button"  id="hard">Insane <i class="fas fa-dragon"></i></button>
+          <button type="button"  id="special">Special <i class="fas fa-fire"></i></button>
+          <button type="button"  id="restart">Restart <i class="fas fa-circle"></i></button>
         
-    </div>
-    <div class="container">
-        <canvas id="snake" width="512" height="512"></canvas>    
-        <div class="tableScore">   
-            <p class="textScore">Score</p>
-            <output id="numberScore">0</output>
-        </div>
+     </div>
+      <div class="container">
+         <canvas id="snake" width="512" height="512"></canvas>    
+           <div class="tableScore">   
+              <p class="textScore">Score</p>
+              <p id="numberScore"></p>
+           </div>
+      </div>
     </div>
 </body>
 </html>

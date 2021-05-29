@@ -6,27 +6,34 @@ snake[0] = {
     x: 16 * box,
     y: 16 * box
 }
-let direction = "up" 
+let direction = "up";
 let food = {
     x: Math.floor(Math.random() * 31 + 1) * box,
     y: Math.floor(Math.random() * 31 + 1) * box
 }
 
-let colors = ["red", "darkcyan", "yellow", "rebeccapurple", "orangered", "deeppink", "chartreuse", "gray", "aqua", "indigo", "black"];
+let colors = ["red", "darkcyan", "yellow", "rebeccapurple", "orangered", "deeppink", "darkblue", "gray", "aqua", "indigo", "black"];
 let colorFood = colors[0];
+
+let score = 0;
+let point = 0;
+let speed = 1000;
 
 
 //Botões
 
-var easyBt = document.getElementById("easy")
-var mediumBt = document.getElementById("medium")
-var hardBt = document.getElementById("hard")
-var specialBt = document.getElementById("special")
+var easyBt = document.getElementById("easy");
+var mediumBt = document.getElementById("medium");
+var hardBt = document.getElementById("hard");
+var specialBt = document.getElementById("special");
+var restartBt = document.getElementById("restart");
+var points = document.getElementById("numberScore");
 
-easyBt.addEventListener('click', easyLevel)
-mediumBt.addEventListener('click', mediumLevel)
-hardBt.addEventListener('click', hardLevel)
-specialBt.addEventListener('click', specialLevel)
+restartBt.hidden = true;
+easyBt.addEventListener('click', easyLevel);
+mediumBt.addEventListener('click', mediumLevel);
+hardBt.addEventListener('click', hardLevel);
+//specialBt.addEventListener('click', specialLevel);
 
 // Funçoes do jogo
 
@@ -64,7 +71,6 @@ function shockYourself(){
 }
 
 document.addEventListener('keydown', update);
-
 function update(event){
     if(event.keyCode == 37 && direction != "right") direction = "left";
     if(event.keyCode == 38 && direction != "down") direction = "up";
@@ -73,10 +79,95 @@ function update(event){
     
 }
 
-function endGame(){
-   clearInterval(easyLevel)
+function makePoint(){
+    if (speed >= 500) point = 1
+    if (speed <= 500 && speed >= 300) point = 3
+    if (speed <= 300 && speed >= 200) point = 5
+    if (speed <= 200 && speed >= 0) point = 7
+    if (speed <= 100 && speed >= -100) point = 10
+    if (speed <= -100 && speed >= -300) point = 20
+    if (speed <= -500) point = 50
+    score +=point;    
+    points.innerHTML = score;
 }
 
+function increaseSpeed(){
+    clearInterval(playGame);
+    speed -=5;
+    playGame = setInterval(iniciarJogo, speed);
+}
+
+function endGame(){
+    clearInterval(playGame);
+    restartBt.hidden = false;
+    restartBt.addEventListener('click', restart);
+}
+
+function restart(){
+    snake.splice(1,snake.length);
+    snake[0] = {
+        x: 16 * box,
+        y: 16 * box
+    }
+    score = 0;
+    points.innerHTML = score;
+    point = 0;
+    speed = 1000;
+    playGame = setInterval(iniciarJogo, speed);
+    easyBt.hidden = false;
+    mediumBt.hidden = false;
+    hardBt.hidden = false;
+    specialBt.hidden = false;
+    restartBt.hidden = true;
+}
+
+//Níveis
+function easyLevel(){
+    clearInterval(playGame);
+    speed -= 400;
+ //   point +=1;
+    playGame = setInterval(iniciarJogo, speed);
+    easyBt.hidden = true;
+    mediumBt.hidden = true;
+    hardBt.hidden = true;
+    specialBt.hidden = true;
+    canvas.focus();
+}
+
+function mediumLevel(){
+    clearInterval(playGame);
+    speed -= 700;
+ //   point +=3;
+    playGame = setInterval(iniciarJogo, speed);
+    easyBt.hidden = true;
+    mediumBt.hidden = true;
+    hardBt.hidden = true;
+    specialBt.hidden = true;
+    canvas.focus();
+}
+
+function hardLevel(){
+    clearInterval(playGame);
+    speed -= 850;
+  //  point +=7;
+    playGame = setInterval(iniciarJogo, speed);
+    easyBt.hidden = true;
+    mediumBt.hidden = true;
+    hardBt.hidden = true;
+    specialBt.hidden = true;
+    canvas.focus();
+}
+
+/*function specialLevel(){
+    clearInterval(playGame);
+    speed += 200;
+    setInterval(iniciarJogo, speed)
+    easyBt.hidden = true;
+    mediumBt.hidden = true;
+    hardBt.hidden = true;
+    specialBt.hidden = true;
+    canvas.focus();
+}*/
 
 
 
@@ -86,7 +177,7 @@ function iniciarJogo(){
 
     backToCanvas();
     shockYourself();
-
+    
     criarBG();
     criarCobrinha();
     drawFood();
@@ -105,10 +196,11 @@ function iniciarJogo(){
         snake.pop();
     }else{food.x = Math.floor(Math.random() * 31 + 1) * box;
         food.y = Math.floor(Math.random() * 31 + 1) * box;
-        colorFood = colors[Math.floor(Math.random() * 10 + 1)]
-        
+        colorFood = colors[Math.floor(Math.random() * 10 + 1)];
+        makePoint();
+        increaseSpeed();
     } 
-
+        
     let newHead = {
         x: snakeX,
         y: snakeY
@@ -118,25 +210,4 @@ function iniciarJogo(){
 
 }
 
-
-//Níveis
-function easyLevel(){
-    let speed = 500
-    let easy = setInterval(iniciarJogo, speed)
-}
-
-function mediumLevel(){
-    let speed = 300;
-    let medium = setInterval(iniciarJogo, speed)
-}
-
-function hardLevel(){
-    let speed = 150;
-    let hard = setInterval(iniciarJogo, speed)
-}
-
-function specialLevel(){
-    let speed = 200;
-    let special = setInterval(iniciarJogo, speed)
-}
-
+let playGame = setInterval(iniciarJogo, speed);
