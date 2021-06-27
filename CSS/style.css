@@ -73,7 +73,7 @@ button{
 
 .container #snake{
     margin: 10px 10px;
-    
+    transition: .3s ease all;
 }
 
 #numberScore{
