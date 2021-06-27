@@ -50,9 +50,12 @@ function criarCobrinha(){
 }
 
 function drawFood(){
-   
+    console.log('coord X ' + food.x, 'coord Y ' + food.y);
     context.fillStyle = colorFood;
-    context.fillRect(food.x, food.y, box, box);
+    //context.fillRect(food.x, food.y, box, box);
+    context.beginPath();
+    context.ellipse(food.x+(box/2), food.y+(box/2), box/2, box/2, Math.PI * .25, 0, 2 * Math.PI);
+    context.fill();
 }
 
 function backToCanvas(){
